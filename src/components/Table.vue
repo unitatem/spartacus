@@ -1,12 +1,10 @@
 <template>
   <table>
     <tr>
-      <th v-for="column in records.metadata">{{ column }}</th>
+      <th v-for="column in records.metadata">{{ column.name }}</th>
     </tr>
-    <tr v-for="player in records.data">
-      <td>{{ player.ranking }}</td>
-      <td>{{ player.name }}</td>
-      <td>{{ player.elo }}</td>
+    <tr v-for="record in records.data">
+      <td v-for="column in records.metadata">{{ record[column.key] }}</td>
     </tr>
   </table>
 </template>
