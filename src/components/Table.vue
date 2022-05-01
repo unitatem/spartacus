@@ -1,11 +1,9 @@
 <template>
   <table>
     <tr>
-      <th>Ranking</th>
-      <th>Name</th>
-      <th>Elo</th>
+      <th v-for="column in records.metadata">{{ column }}</th>
     </tr>
-    <tr v-for="player in players">
+    <tr v-for="player in records.data">
       <td>{{ player.ranking }}</td>
       <td>{{ player.name }}</td>
       <td>{{ player.elo }}</td>
@@ -15,15 +13,7 @@
 
 <script>
 export default {
-  data() {
-    return {
-      players: [
-        { ranking: 1, name: "Alice", elo: 2000 },
-        { ranking: 2, name: "Bob", elo: 1500 },
-        { ranking: 3, name: "Charlie", elo: 1000 }
-      ]
-    }
-  }
+  props: ['records']
 }
 </script>
 

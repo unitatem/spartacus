@@ -1,11 +1,12 @@
 <template>
   <h1>TEST</h1>
   <NavBar @selected='onNavBarSelected' />
-  <Table v-if="theShowSection['players']" />
+  <Table :records="theDatabase.get('players')" v-if="theShowSection['players']" />
   <h1>END</h1>
 </template>
 
 <script>
+import Database from './backend/Database.js'
 import NavBar from './components/NavBar.vue'
 import Table from './components/Table.vue'
 
@@ -16,6 +17,7 @@ export default {
   },
   data() {
     return {
+      theDatabase: new Database(),
       theShowSection: { players: true }
     }
   },

@@ -14,6 +14,7 @@ export default {
       theFields: [
         { key: 'players', display: 'Players' },
         { key: 'teams', display: 'Teams' },
+        { key: 'games', display: 'Games' },
         { key: 'about', display: 'About' }],
       theActiveFieldIdx: 0
     }
