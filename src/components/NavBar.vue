@@ -21,7 +21,6 @@ export default {
   },
   methods: {
     setActiveField(aNewIdx, aNewFieldName) {
-      console.log(aNewIdx, aNewFieldName)
       this.theActiveFieldIdx = aNewIdx
       this.$emit('selected', aNewFieldName)
     }

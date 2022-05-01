@@ -1,10 +1,8 @@
 <template>
-  <h1>TEST</h1>
   <NavBar @selected='onNavBarSelected' />
   <Table :records="theDatabase.get('players')" v-if="theShowSection['players']" />
   <Table :records="theDatabase.get('teams')" v-if="theShowSection['teams']" />
   <Table :records="theDatabase.get('games')" v-if="theShowSection['games']" />
-  <h1>END</h1>
 </template>
 
 <script>
