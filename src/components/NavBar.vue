@@ -1,13 +1,14 @@
 <template>
   <div class="nav-bar">
     <div v-for="(field, idx) in theFields" :class="{ 'active-field': idx == theActiveFieldIdx }"
-      @click="setActiveField(idx)">
+      @click="setActiveField(idx, field.key)">
       {{ field.display }}</div>
   </div>
 </template>
 
 <script>
 export default {
+  emits: ['selected'],
   data() {
     return {
       theFields: [
@@ -18,10 +19,14 @@ export default {
     }
   },
   methods: {
-    setActiveField(aNewIdx) {
-      console.log(aNewIdx)
+    setActiveField(aNewIdx, aNewFieldName) {
+      console.log(aNewIdx, aNewFieldName)
       this.theActiveFieldIdx = aNewIdx
+      this.$emit('selected', aNewFieldName)
     }
+  },
+  mounted() {
+    this.$emit('selected', this.theFields[this.theActiveFieldIdx].key)
   }
 }
 </script>
